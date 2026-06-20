@@ -20,4 +20,4 @@ EXPOSE 5001
 
 # 使用 gunicorn 啟動 Flask 應用程式，並綁定到 0.0.0.0:5001
 # 注意：這能確保在容器化環境中對外提供服務
-CMD ["gunicorn", "--bind", "0.0.0.0:5001", "app:app"]
+CMD ["gunicorn", "--bind", "0.0.0.0:5001", "--access-logfile", "-", "--error-logfile", "-", "app:app"]
