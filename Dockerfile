@@ -4,6 +4,9 @@ FROM python:3.10-slim
 # 設定工作目錄
 WORKDIR /app
 
+# 升級系統套件以修復已知的 OS 安全漏洞
+RUN apt-get update && apt-get upgrade -y && rm -rf /var/lib/apt/lists/*
+
 # 設定環境變數，防止 Python 產生 pyc 檔案，並讓 log 即時輸出
 ENV PYTHONDONTWRITEBYTECODE=1
 ENV PYTHONUNBUFFERED=1
